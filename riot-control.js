@@ -43,14 +43,6 @@ Router.prototype._matchRoute = function(segments, depth, routes) {
         // A function means that we can resolve the route
         if(typeof(routes[routeName]) == 'function') {
           return {params: params, routeFunction: routes[routeName], matched: true};
-        // An array means that we resolve the route with the function if the
-        // requested path ends here or we need to go deeper into subroutes
-        } else if (routes[routeName] && routes[routeName].constructor === Array) {
-          if (segments.length > depth + 1) {
-            return this._matchRoute(segments, depth + 1, routes[routeName][1])
-          } else {
-            return {params: params, routeFunction: routes[routeName][0], matched: true};
-          }
         // An object means that we need to go into subroutes
         } else if (segments.length > depth + 1) {
           return this._matchRoute(segments, depth + 1, routes[routeName]);
@@ -78,6 +70,11 @@ Router.prototype._router = function() {
   var pathSegments = new Array(arguments.length);
   for(var i = 0; i < pathSegments.length; ++i) {
     pathSegments[i] = arguments[i];
+  }
+  // Add trailing '' if it doesn't exist yet so that index routes in subroutes
+  // get processed
+  if (pathSegments.length > 1) {
+    pathSegments.push('');
   }
   var routeInfo = this._matchRoute(pathSegments, 0, this._routes);
   var path = '/' + pathSegments.join('/');
