@@ -13,17 +13,13 @@ Routing code:
 var RiotControl = require('riot-control');
 
 var routes = {
-  // Route (#/home)
   home: function() { riot.mount('#view', 'homepage'); },
-  // Root route (#/)
-  '': function() { riot.mount('#view', 'index'); },
-  // Nested routes (#/pages, #/pages/about, #/pages/contact)
+  '': function() { riot.mount('#view', 'root'); },
   pages: {
     '': function() { riot.mount('#view', 'pages-index'); },
     about: function() { riot.mount('#view', 'about'); },
     contact: function() { riot.mount('#view', 'contact'); }
   },
-  // Dynamic parameters (#/users/:id, e.g. #/users/123)
   users: {
     ':id': function() { riot.mount('#view', 'user-details'); }
   },
