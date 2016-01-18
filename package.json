@@ -1,0 +1,28 @@
+{
+  "name": "riot-control",
+  "version": "1.0.0",
+  "description": "A simple Rails-inspired router for Riot.js",
+  "main": "riot-control.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earksiinni/riot-control.git"
+  },
+  "keywords": [
+    "riotjs",
+    "riot",
+    "router",
+    "rails"
+  ],
+  "author": "Ersin Akinci <ersin.akinci@gmail.com> (http://ersinakinci.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/earksiinni/riot-control/issues"
+  },
+  "dependencies": {
+    "riot": ">=2.3.0"
+  },
+  "homepage": "https://github.com/earksiinni/riot-control#readme"
+}
