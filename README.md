@@ -42,6 +42,15 @@ var router = new RiotControl(routes);
 </app>
 ```
 
+Finally, somewhere else, define your tags:
+
+```html
+<homepage>
+  <p>Welcome to Zardoz!</p>
+</homepage>
+...etc.
+```
+
 ## Overview
 
 Riot Control provides Rails-like routing for your Riot.js-based web app. The intention was to keep the code simple and to use Riot.js' built-in routing capabilities.
