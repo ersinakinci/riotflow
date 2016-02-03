@@ -1,5 +1,5 @@
 {
-  "name": "riot-control",
+  "name": "riotflow",
   "version": "1.0.0",
   "description": "A simple Rails-inspired router for Riot.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/earksiinni/riot-control.git"
+    "url": "git+https://github.com/earksiinni/riotflow.git"
   },
   "keywords": [
     "riotjs",
@@ -19,10 +19,10 @@
   "author": "Ersin Akinci <ersin.akinci@gmail.com> (http://ersinakinci.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/earksiinni/riot-control/issues"
+    "url": "https://github.com/earksiinni/riotflow/issues"
   },
   "dependencies": {
     "riot": ">=2.3.0"
   },
-  "homepage": "https://github.com/earksiinni/riot-control#readme"
+  "homepage": "https://github.com/earksiinni/riotflow#readme"
 }

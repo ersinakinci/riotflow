@@ -1,5 +1,5 @@
 ;(function(window) {
-  var RiotControl = function(routes, riot) {
+  var RiotFlow = function(routes, riot) {
     this._registeredObservers = [];
     this._routes = routes;
 
@@ -23,11 +23,11 @@
     }
   };
 
-  RiotControl.prototype.registerObserver = function(el) {
+  RiotFlow.prototype.registerObserver = function(el) {
     this._registeredObservers.push(el);
   };
 
-  RiotControl.prototype._matchTargetSegmentToRouteName = function(targetSegment, routeName) {
+  RiotFlow.prototype._matchTargetSegmentToRouteName = function(targetSegment, routeName) {
     if (targetSegment == routeName) {
       return true;
     } else if (routeName[0] == ':') {
@@ -38,7 +38,7 @@
   };
 
   // Recursive function for matching paths to routes
-  RiotControl.prototype._matchRoute = function(segments, depth, routes) {
+  RiotFlow.prototype._matchRoute = function(segments, depth, routes) {
     var targetSegment = segments[depth];
     var params = {};
 
@@ -70,13 +70,13 @@
     return {params: params, routeFunction: routes['*'] || undefined, matched: false};
   };
 
-  RiotControl.prototype._notifyRegisteredObservers = function(path, params) {
+  RiotFlow.prototype._notifyRegisteredObservers = function(path, params) {
     this._registeredObservers.forEach(function(observer, i, observers) {
       observer.trigger(path, params);
     })
   };
 
-  RiotControl.prototype._router = function() {
+  RiotFlow.prototype._router = function() {
     // Fancy code to avoid killing arguments optimization
     // https://github.com/petkaantonov/bluebird/wiki/Optimization-killers#3-managing-arguments
     var pathSegments = new Array(arguments.length);
@@ -109,9 +109,9 @@
 
   // support CommonJS, AMD & browser
   if (typeof module !== 'undefined' && module.exports)
-    module.exports = RiotControl
+    module.exports = RiotFlow
   else if (typeof define === 'function' && define.amd)
-    define(function() { return (window.RiotControl = RiotControl) })
+    define(function() { return (window.RiotFlow = RiotFlow) })
   else
-    window.RiotControl = RiotControl
+    window.RiotFlow = RiotFlow
 })(typeof window != 'undefined' ? window : void 0)
